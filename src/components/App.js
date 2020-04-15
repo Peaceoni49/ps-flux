@@ -10,7 +10,12 @@ function App() {
     if(route === "/about") return <AboutPage/>;
     return <HomePage/>
     }
-    return getPage();
+    return (
+        <div className="container-fluid">
+            <Header/>
+        {getPage()}
+        </div>
+    )
 }
 
 export default App;
