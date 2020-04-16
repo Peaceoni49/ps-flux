@@ -3,12 +3,8 @@ import { getCourses } from "../Api/courseApi";
 
 
 class CoursesPage extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            courses:[]
-        }
+    state = {
+      courses:[]
     }
     render () {
         return <h2>Courses</h2>
