@@ -8,10 +8,17 @@ class CoursesPage extends React.Component {
     };
 
     componentDidMount() {
-        getCourses().then(function(courses){
-            this.setState({courses: courses});
-        }) 
+        getCourses().then(courses=> this.setState({ courses: courses})); 
     }
+
+    renderRow(course) {
+        return(
+        <tr>
+                    <td>{course.title}</td>
+                    <td>{course.authorid}</td>
+                    <td>{course.category}</td>
+                </tr>
+        )}
     render () {
         return <><h2>Courses</h2>
         <table className="table">
@@ -23,13 +30,7 @@ class CoursesPage extends React.Component {
                 </tr>
             </thead>
             <tbody>
-                { this.state.courses.map( course =>{
-                    return<tr>
-                        <td>{course.title}</td>
-                        <td>{course.authorid}</td>
-                        <td>{course.category}</td>
-                    </tr>
-                })}
+                { this.state.courses.map(this.renderRow)}
             </tbody>
         </table></>
         
